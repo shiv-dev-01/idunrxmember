@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gray-100 text-gray-900 antialiased;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Better form inputs */
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="date"],
+  input[type="tel"],
+  textarea {
+    @apply appearance-none;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-white rounded-xl p-6 shadow-md border border-gray-100/50 backdrop-blur-sm transition-all hover:shadow-lg;
+  }
+
+  .section-title {
+    @apply text-xl md:text-2xl font-bold text-gray-900 mb-2;
+  }
+
+  .section-subtitle {
+    @apply text-sm md:text-base text-gray-600 mb-6;
+  }
+
+  .section-container {
+    @apply bg-white rounded-xl shadow-md border border-gray-100/50 p-6 mb-6;
+  }
+
+  .nav-link {
+    @apply flex items-center space-x-3 px-4 py-3 rounded-xl text-gray-600 hover:bg-primary-50 hover:text-primary-600 transition-all relative overflow-hidden;
+  }
+
+  .nav-link.active {
+    @apply bg-primary-50 text-primary-600 font-medium;
+  }
+
+  .nav-link.active::before {
+    content: '';
+    @apply absolute left-0 top-0 bottom-0 w-1 bg-primary-500 rounded-r;
+  }
+
+  .nav-link[title] {
+    @apply px-0 justify-center;
+  }
+
+  .nav-link[title] span {
+    @apply hidden;
+  }
+
+  .form-input {
+    @apply mt-1 block w-full rounded-lg border border-gray-300 px-4 py-2.5 bg-white focus:border-primary-500 focus:ring-2 focus:ring-primary-200 focus:ring-opacity-50 transition-colors shadow-sm;
+  }
+
+  .form-label {
+    @apply block text-sm font-medium text-gray-700;
+  }
+
+  .form-error {
+    @apply mt-1.5 text-sm text-red-600;
+  }
+
+  /* Shimmer loading effect */
+  .shimmer {
+    @apply relative overflow-hidden bg-gray-100;
+  }
+
+  .shimmer::after {
+    content: '';
+    @apply absolute inset-0;
+    background: linear-gradient(90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.6) 50%,
+        rgba(255, 255, 255, 0) 100%);
+    animation: shimmer 1.5s infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  /* Page transitions */
+  .page-enter {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  .page-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 300ms, transform 300ms;
+  }
+
+  .page-exit {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .page-exit-active {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 300ms, transform 300ms;
+  }
+}
+
+.logo_my {
+  max-width: 180px;
+  padding: 5px;
+  object-fit: contain;
+  /* background-color: #111; */
+}
+
+/* Import NProgress styles */
+@import './styles/nprogress.css';
