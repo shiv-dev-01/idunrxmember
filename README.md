@@ -60,6 +60,7 @@ The dev server opens at http://localhost:5173.
 - `package-lock.json`
 - `package.json`
 - `postcss.config.js`
+- `README.md`
 - `tailwind.config.js`
 - `tsconfig.app.json`
 - `tsconfig.json`
